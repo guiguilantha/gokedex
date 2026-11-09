@@ -9,6 +9,7 @@ import (
 )
 
 type Pokemon struct {
+	ID   int
 	Name string `json:"name"`
 }
 
@@ -25,12 +26,12 @@ func accueil(w http.ResponseWriter, r *http.Request) {
 	}
 
 	pokémons := getPokemon()
-	fmt.Println(len(pokémons), "Pokémon")
 
-	if err := tmpl.Execute(w, nil); err != nil {
+	if err := tmpl.Execute(w, pokémons); err != nil {
 		log.Printf("erreur de rendu du template : %v", err)
 	}
 }
+
 func getPokemon() []Pokemon {
 	resp, err := http.Get("https://pokeapi.co/api/v2/pokemon?limit=151")
 	if err != nil {
@@ -50,10 +51,15 @@ func getPokemon() []Pokemon {
 		return nil
 	}
 
+	for i := range liste.Result {
+		liste.Result[i].ID = i + 1
+	}
 	return liste.Result
 }
+
 func main() {
 	http.HandleFunc("/", accueil)
+	http.Handle("/static/", http.FileServer(http.Dir(".")))
 
 	log.Println("Serveur lancé sur http://localhost:8080")
 	log.Fatal(http.ListenAndServe(":8080", nil))
