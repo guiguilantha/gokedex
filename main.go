@@ -57,8 +57,14 @@ func getPokemon() []Pokemon {
 	return liste.Result
 }
 
+func fiche(w http.ResponseWriter, r *http.Request) {
+	id := r.PathValue("id")
+	fmt.Fprint(w, "Pokémon ", id)
+}
+
 func main() {
 	http.HandleFunc("/", accueil)
+	http.HandleFunc("/pokemon/{id}", fiche)
 	http.Handle("/static/", http.FileServer(http.Dir(".")))
 
 	log.Println("Serveur lancé sur http://localhost:8080")

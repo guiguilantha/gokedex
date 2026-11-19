@@ -8,13 +8,13 @@
     <body>
         <h1>Pokédex</h1>
         <div class="grille">
-            {{range .}}
-            <div class="carte">
+        {{range .}}
+            <a class="carte" href="/pokemon/{{.ID}}">
                 <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{{.ID}}.png" alt="{{.Name}}">
                 <p>n° {{.ID}}</p>
                 <h2>{{.Name}}</h2>
-            </div>
-            {{end}}
+            </a>
+        {{end}}
         </div>
     </body>
 </html>

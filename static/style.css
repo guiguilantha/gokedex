@@ -1,34 +1,36 @@
 body {
-    font-family: sans-serif;
-    background: #f4f4f8;
-    margin: 0;
-    padding: 2rem;
+  font-family: sans-serif;
+  background: #f4f4f8;
+  margin: 0;
+  padding: 2rem;
 }
 
 h1 {
-    text-align: center;
-    color: #e3350d;
+  text-align: center;
+  color: #e3350d;
 }
 
 .grille {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-    gap: 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 1.5rem;
 }
 
 .carte {
-    background: white;
-    border-radius: 12px;
-    padding: 1rem;
-    text-align: center;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  background: white;
+  border-radius: 12px;
+  padding: 1rem;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  color: black;
+  text-decoration: none;
 }
 
 .carte img {
-    width: 120px;
-    image-rendering: pixelated;
+  width: 120px;
+  image-rendering: pixelated;
 }
 
 .carte h2 {
-    text-transform: capitalize;
+  text-transform: capitalize;
 }
