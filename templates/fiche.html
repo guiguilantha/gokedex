@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>{{.NomFr}}</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<a href="/">← Retour</a>
+<div class="fiche">
+<img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{{.Pokemon.ID}}.png" alt="{{.NomFr}}">
+<div>
+<p>n° {{.Pokemon.ID}}</p>
+<h1>{{.NomFr}}</h1>
+<p>En anglais : {{.Pokemon.Name}}</p>
+<h2>Types</h2>
+<ul class="types">
+{{range .Pokemon.Types}}
+<li>{{.Type.Name}}</li>
+{{end}}
+</ul>
+</div>
+</div>
+</body>
+</html>
